@@ -1,6 +1,6 @@
 # Imapct of Social Media Ads on Consumer Behavior.
 
-This project is a web application designed for analyzing social media advertisements. It provides users with a platform to gain insights into the performance of their ads across various social media platforms like Facebook, Instagram, Twitter, and LinkedIn.'
+This project is a web application designed for analyzing social media advertisements on consumer behavior. It provides users with a platform to gain insights into the performance of their ads across various social media platforms like Facebook, Instagram, Twitter, and LinkedIn.'
 
 
 ## Technologies Used:

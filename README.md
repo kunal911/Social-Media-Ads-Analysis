@@ -15,3 +15,5 @@ Advanced machine learning algorithms for predictive analysis.
 Enhanced user authentication and authorization features.
 Real-time data updates and notifications.
 Improved visualization options and customization.
+
+Link for the App: https://social-media-ads-analysis.streamlit.app/

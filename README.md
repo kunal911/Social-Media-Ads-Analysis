@@ -16,4 +16,4 @@ Enhanced user authentication and authorization features.<br>
 Real-time data updates and notifications.<br>
 Improved visualization options and customization.<br>
 
-Link for the App: https://social-media-ads-analysis.streamlit.app/
+Link: https://social-media-ads-analysis.streamlit.app/

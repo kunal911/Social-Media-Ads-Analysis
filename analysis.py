@@ -49,6 +49,26 @@ def plot_gender_vs_usage(platform_filter):
     ax.set_title(f'Gender vs. Daily Social Media Usage for Platform(s): {", ".join(platform_filter)}')
     return fig
 
+# Function to create the fourth plot
+def plot_impulse_purchase_vs_age(platform_filter):
+    filtered_data = data[data['Which social media platforms do you use most frequently?'].apply(lambda x: any(p in x for p in platform_filter))]
+    fig, ax = plt.subplots(figsize=(10, 6))
+    impulse_purchase_by_age = filtered_data.groupby('Age?')['Have you ever made an impulse purchase because of a social media ad?'].value_counts(normalize=True).unstack()
+    impulse_purchase_by_age.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Age')
+    ax.set_ylabel('Proportion')
+    ax.set_title(f'Impulse Purchase vs. Age for Platform(s): {", ".join(platform_filter)}')
+    return fig
+
+# Function to create the fifth plot
+def plot_impulse_purchase_vs_usage(platform_filter):
+    filtered_data = data[data['Which social media platforms do you use most frequently?'].apply(lambda x: any(p in x for p in platform_filter))]
+    fig, ax = plt.subplots(figsize=(10, 6))
+    impulse_purchase_by_usage = filtered_data.groupby('How many hours per day do you typically spend on social media?')['Have you ever made an impulse purchase because of a social media ad?'].value_counts(normalize=True).unstack()
+    impulse_purchase_by_usage.plot(kind='pie', subplots=True, ax=ax, autopct='%1.1f%%', startangle=90)
+    ax.set_title(f'Impulse Purchase vs. Daily Social Media Usage for Platform(s): {", ".join(platform_filter)}')
+    return fig
+
 # Streamlit app
 def main():
     st.title("Social Media Ads Analysis")
@@ -69,6 +89,16 @@ def main():
         # Plot 3: Gender vs. Daily Social Media Usage
         st.subheader("Gender vs. Daily Social Media Usage")
         fig = plot_gender_vs_usage(platform_filter)
+        st.pyplot(fig)
+
+        # Plot 4: Impulse Purchase vs. Age
+        st.subheader("Impulse Purchase vs. Age")
+        fig = plot_impulse_purchase_vs_age(platform_filter)
+        st.pyplot(fig)
+
+        # Plot 5: Impulse Purchase vs. Daily Social Media Usage
+        st.subheader("Impulse Purchase vs. Daily Social Media Usage")
+        fig = plot_impulse_purchase_vs_usage(platform_filter)
         st.pyplot(fig)
 
 if __name__ == "__main__":
